@@ -1,3 +1,5 @@
+import { IDoctor } from "types/domain";
+
 const availabilitySlots = [
   { start: "2019-09-10T08:00:00.000Z", end: "2019-09-10T09:00:00.000Z" },
   { start: "2019-09-10T08:30:00.000Z", end: "2019-09-10T09:30:00.000Z" },
@@ -69,13 +71,25 @@ const availabilitySlots = [
   { start: "2019-09-13T21:30:00.000Z", end: "2019-09-13T22:30:00.000Z" },
 ];
 
-export const doctors = [
+export const doctors: IDoctor[] = [
   {
     name: "Nathaniel Branden",
     profession: "Psychologist",
     location: "Lisbon",
+    field: ["Self-Esteem"],
     description:
       "Nathaniel Branden was a Canadian–American psychotherapist and writer known for his work in the psychology of self-esteem. A former associate and romantic partner of Ayn Rand, Branden also played a prominent role in the 1960s in promoting Rand's philosophy, Objectivism. Rand and Branden split acrimoniously in 1968, after which Branden focused on developing his own psychological theories and modes of therapy.",
+    reviews: [0.7, 0.8, 0.2, 0.5],
+    ratesPerHour: 160,
+    availabilitySlots,
+  },
+  {
+    name: "Hermann Ebbinghaus",
+    profession: "Psychologist",
+    location: "Lisbon",
+    field: ["Memory", "Learing"],
+    description:
+      "was a German psychologist who pioneered the experimental study of memory, and is known for his discovery of the forgetting curve and the spacing effect. He was also the first person to describe the learning curve. He was the father of the neo-Kantian philosopher Julius Ebbinghaus.",
     reviews: [0.7, 0.8, 0.2, 0.5],
     ratesPerHour: 160,
     availabilitySlots,

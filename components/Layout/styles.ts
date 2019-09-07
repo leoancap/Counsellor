@@ -1,8 +1,8 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-export const MainContainer = styled.main``;
-
-export const Container = styled.div``;
+export const MainContainer = styled.main`
+  padding-top: 80px;
+`;
 
 export const GlobalStyles = createGlobalStyle`
   * {
