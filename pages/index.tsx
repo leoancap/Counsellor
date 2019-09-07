@@ -1,5 +1,4 @@
 import React from "react";
-import { date } from "faker";
 
 import { Layout } from "components";
 import { api } from "config";
@@ -7,7 +6,9 @@ import { api } from "config";
 function Home({ data }) {
   return (
     <Layout>
-      <div>I am home</div>
+      <div style={{ height: "800px" }}>I am home</div>
+      <div style={{ height: "800px" }}>I am home</div>
+      <div style={{ height: "800px" }}>I am home</div>
     </Layout>
   );
 }
