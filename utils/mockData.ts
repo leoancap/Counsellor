@@ -1,4 +1,4 @@
-import { IDoctor } from "types/domain";
+import { IProfessional } from "types/domain";
 
 const availabilitySlots = [
   { start: "2019-09-10T08:00:00.000Z", end: "2019-09-10T09:00:00.000Z" },
@@ -71,7 +71,7 @@ const availabilitySlots = [
   { start: "2019-09-13T21:30:00.000Z", end: "2019-09-13T22:30:00.000Z" },
 ];
 
-export const doctors: IDoctor[] = [
+export const doctors: IProfessional[] = [
   {
     name: "Nathaniel Branden",
     profession: "Psychologist",

@@ -1,4 +1,4 @@
-export interface IDoctor {
+export interface IProfessional {
   name: string;
   profession: string;
   field: string[];

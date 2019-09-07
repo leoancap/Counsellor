@@ -3,18 +3,18 @@ import React from "react";
 import { Layout, Listing } from "components";
 import { api } from "config";
 
-function Home({ doctors }) {
+function Home({ professionals }) {
   return (
     <Layout>
-      <Listing doctors={doctors} />
+      <Listing professionals={professionals} />
     </Layout>
   );
 }
 
 Home.getInitialProps = async () => {
-  const { data } = await api.get("/doctors");
+  const { data } = await api.get("/professionals");
 
-  return { doctors: data };
+  return { professionals: data };
 };
 
 export default Home;

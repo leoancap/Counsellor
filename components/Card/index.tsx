@@ -1,12 +1,36 @@
 import React from "react";
-
-import { IDoctor } from "types/domain";
-import { Container } from "./styles";
+import { IProfessional } from "types/domain";
+import {
+  Avatar,
+  Container,
+  CRP,
+  Name,
+  ProfessionalInfo,
+  Thumb,
+  UserInfo,
+  Profession,
+  City,
+} from "./styles";
 
 interface IProps {
-  doctor: IDoctor;
+  professional: IProfessional;
 }
 
-export function Card({ doctor }: IProps) {
-  return <Container>{doctor.name}</Container>;
+export function Card({ professional }: IProps) {
+  return (
+    <Container>
+      <ProfessionalInfo>
+        <Avatar>
+          <Thumb />
+          <UserInfo>
+            <Name>{professional.name}</Name>
+            <CRP>
+              <Profession>{professional.profession}</Profession>
+              <City>{professional.location}</City>
+            </CRP>
+          </UserInfo>
+        </Avatar>
+      </ProfessionalInfo>
+    </Container>
+  );
 }
