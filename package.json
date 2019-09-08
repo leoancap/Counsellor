@@ -3,15 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "dev": "next dev",
     "build": "next build",
     "start": "next dev",
-    "deploy": "now"
+    "deploy": "npx now"
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.19.0",
     "faker": "^4.1.0",
     "isomorphic-unfetch": "^3.0.0",
+    "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "next": "9.0.5",
     "react": "16.9.0",
     "react-dom": "16.9.0",
@@ -25,7 +28,6 @@
     "@types/node": "^12.7.4",
     "@types/styled-components": "^4.1.18",
     "babel-plugin-styled-components": "^1.10.6",
-    "now": "^16.2.0",
     "typescript": "^3.6.2"
   }
 }

@@ -1,6 +1,6 @@
 import styled, { createGlobalStyle } from "styled";
 
-export const MainContainer = styled.main`
+export const MainContainer = styled.div`
   padding-top: 80px;
 `;
 
@@ -8,7 +8,7 @@ export const GlobalStyles = createGlobalStyle`
   *,*::before, *::after {
     margin: 0;
     padding: 0;
-    box-sizing: inherit;
+    box-sizing: border-box;
     font-weight: 200;
   }
   body {

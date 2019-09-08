@@ -32,8 +32,10 @@ export function Card({
     name,
     profession,
     ratesPerHour,
+    availabilitySlots,
   },
 }: IProps) {
+  // console.log(availabilitySlots);
   return (
     <Container>
       <ProfessionalInfo>

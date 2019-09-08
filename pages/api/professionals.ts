@@ -1,6 +1,7 @@
 import { NowRequest, NowResponse } from "@now/node";
-import { doctors } from "utils/mockData";
+import { generateProfessionals } from "utils/mockData";
 
 export default (req: NowRequest, res: NowResponse) => {
-  res.json(doctors);
+  const { startDate, endDate } = req.query;
+  res.json(generateProfessionals(+startDate, +endDate));
 };

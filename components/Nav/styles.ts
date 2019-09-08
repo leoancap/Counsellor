@@ -12,7 +12,7 @@ export const Container = styled.header<IInvert>`
   align-content: center;
   grid-auto-flow: column;
   grid-gap: 1em;
-  padding: 0 2em;
+  padding: 0 20px;
   position: fixed;
   top: 0;
   left: 0;
