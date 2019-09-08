@@ -22,7 +22,7 @@ const Home = ({ professionals }) => {
   );
 };
 
-Home.getInitialProps = async () => {
+Home.getInitialProps = async ({  }: NextPageContext) => {
   const professionals = await api.professionals();
 
   return { professionals };

@@ -7,23 +7,26 @@ interface IInvert {
 export const Container = styled.header<IInvert>`
   height: 80px;
   background-color: ${p => p.theme.foreground};
-  display: grid;
+  /* display: grid;
   justify-content: flex-start;
   align-content: center;
   grid-auto-flow: column;
-  grid-gap: 1em;
+  grid-gap: 1em; */
+  display: flex;
+  align-items: center;
   padding: 0 20px;
   position: fixed;
+  z-index: 9999;
   top: 0;
   left: 0;
   right: 0;
   transition: all 0.3s;
   border-bottom: 1px solid ${p => p.theme.primary};
-  ${({ invert }) =>
+  ${({ invert, theme }) =>
     invert &&
     `
       background-color: white;
-      color: ${p => p.theme.primary};
+      color: ${theme.primary};
   `}
 `;
 
@@ -40,20 +43,23 @@ export const Logo = styled.div<IInvert>`
   color: white;
   font-family: cursive;
   transition: all 0.3s;
-  ${({ invert }) =>
+  margin-right: 1em;
+  ${({ invert, theme: { primary } }) =>
     invert &&
     `
-      border: 1px solid #3177df;
-      color: #3177df;
+      border: 1px solid ${primary};
+      color: ${primary};
   `}
 `;
 
 export const LogoText = styled.h3<IInvert>`
   color: white;
+  font-weight: normal;
   align-self: center;
-  ${({ invert }) =>
+  margin-right: 1em;
+  ${({ invert, theme }) =>
     invert &&
     `
-      color: #3177df;
+      color: ${theme.primary};
   `}
 `;

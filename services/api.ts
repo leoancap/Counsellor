@@ -9,6 +9,7 @@ const apiUrl = dev
 export const baseURL = axios.create({
   baseURL: `${apiUrl}/api`,
 });
+
 const today = () => new Date().getDate();
 
 export const api = {

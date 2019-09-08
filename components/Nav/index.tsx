@@ -2,6 +2,7 @@ import React from "react";
 
 import { Container, Logo, LogoText } from "./styles";
 import { useIsScrolled } from "hooks/useIsScrolled";
+import { DateCarousel } from "components";
 
 export function Nav() {
   const isScrolled = useIsScrolled();
