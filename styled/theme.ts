@@ -1,8 +1,11 @@
 export const theme = {
-  colors: {
-    Primary: "linear-gradient(to right bottom,#387BE3,#6D9EEA )",
-    Secondary: "#EDF2F5",
-  },
+  foreground: "#387BE3",
+  background: "#EDF2F5",
+  primary: "#007bff",
+  secondary: "#6c757d",
+  dark: "#343a40",
+  breakpointMD: "768px",
+  breakpointLG: "992px",
 };
 
 export type Theme = typeof theme;

@@ -1,9 +1,9 @@
 export interface IProfessional {
   name: string;
   profession: string;
-  field: string[];
+  fields: string[];
   location: string;
-  description: string;
+  summary: string;
   reviews: number[];
   ratesPerHour: number;
   availabilitySlots: IAvailabilitySlot[];

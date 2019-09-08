@@ -10,24 +10,45 @@ import {
   UserInfo,
   Profession,
   City,
+  Slash,
+  RatingWrapper,
+  Fields,
+  Field,
+  RateWrapper,
+  Rate,
+  Summary,
 } from "./styles";
 
 interface IProps {
   professional: IProfessional;
 }
 
-export function Card({ professional }: IProps) {
+export function Card({
+  professional: { summary, fields, location, name, profession, ratesPerHour },
+}: IProps) {
   return (
     <Container>
       <ProfessionalInfo>
         <Avatar>
           <Thumb />
           <UserInfo>
-            <Name>{professional.name}</Name>
+            <Name>{name}</Name>
             <CRP>
-              <Profession>{professional.profession}</Profession>
-              <City>{professional.location}</City>
+              <Profession>{profession}</Profession>
+              <Slash>&nbsp;|&nbsp;</Slash>
+              <City>{location}</City>
             </CRP>
+            <RatingWrapper>⭐️⭐️⭐️⭐️⭐️</RatingWrapper>
+            <Fields>
+              {fields.map((field, index) => (
+                <Field key={index}>{field}</Field>
+              ))}
+            </Fields>
+            <RateWrapper>
+              <Rate>{`€${ratesPerHour}`}</Rate>
+              {" / hour"}
+            </RateWrapper>
+            <Summary>{summary}</Summary>
           </UserInfo>
         </Avatar>
       </ProfessionalInfo>

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled";
 
 interface IInvert {
   invert: boolean;
@@ -6,7 +6,7 @@ interface IInvert {
 
 export const Container = styled.header<IInvert>`
   height: 80px;
-  background-color: #3177df;
+  background-color: ${p => p.theme.foreground};
   display: grid;
   justify-content: flex-start;
   align-content: center;
@@ -23,8 +23,8 @@ export const Container = styled.header<IInvert>`
     invert &&
     `
       background-color: white;
-      color: #3177df;
-      border-bottom: 1px solid #3177df;
+      color: ${p => p.theme.primary};
+      border-bottom: 1px solid ${p => p.theme.primary};
   `}
 `;
 
