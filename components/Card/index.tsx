@@ -1,5 +1,6 @@
 import React from "react";
 import { IProfessional } from "types/domain";
+import { Rating } from "components";
 import {
   Avatar,
   Container,
@@ -11,7 +12,6 @@ import {
   Profession,
   City,
   Slash,
-  RatingWrapper,
   Fields,
   Field,
   RateWrapper,
@@ -24,7 +24,15 @@ interface IProps {
 }
 
 export function Card({
-  professional: { summary, fields, location, name, profession, ratesPerHour },
+  professional: {
+    reviews,
+    summary,
+    fields,
+    location,
+    name,
+    profession,
+    ratesPerHour,
+  },
 }: IProps) {
   return (
     <Container>
@@ -38,7 +46,7 @@ export function Card({
               <Slash>&nbsp;|&nbsp;</Slash>
               <City>{location}</City>
             </CRP>
-            <RatingWrapper>⭐️⭐️⭐️⭐️⭐️</RatingWrapper>
+            <Rating reviews={reviews} />
             <Fields>
               {fields.map((field, index) => (
                 <Field key={index}>{field}</Field>
@@ -48,9 +56,9 @@ export function Card({
               <Rate>{`€${ratesPerHour}`}</Rate>
               {" / hour"}
             </RateWrapper>
-            <Summary>{summary}</Summary>
           </UserInfo>
         </Avatar>
+        <Summary>{summary}</Summary>
       </ProfessionalInfo>
     </Container>
   );

@@ -32,7 +32,7 @@ export const Name = styled.h2`
 `;
 
 export const CRP = styled.div`
-  margin-top: 10px;
+  margin-top: 5px;
 `;
 
 export const Profession = styled.span`
@@ -41,15 +41,9 @@ export const Profession = styled.span`
   font-size: 16px;
 `;
 
-export const City = styled.span`
-  font-weight: lighter;
-`;
+export const City = styled.span``;
 
-export const Slash = styled.span`
-  font-weight: lighter;
-`;
-
-export const RatingWrapper = styled.div``;
+export const Slash = styled.span``;
 
 export const Fields = styled.ul``;
 

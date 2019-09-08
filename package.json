@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "next build",
-    "start": "now dev",
+    "start": "next dev",
     "deploy": "now"
   },
   "dependencies": {
@@ -15,6 +15,7 @@
     "next": "9.0.5",
     "react": "16.9.0",
     "react-dom": "16.9.0",
+    "react-icons": "^3.7.0",
     "styled-components": "^4.3.2"
   },
   "devDependencies": {

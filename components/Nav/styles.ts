@@ -11,7 +11,6 @@ export const Container = styled.header<IInvert>`
   justify-content: flex-start;
   align-content: center;
   grid-auto-flow: column;
-  border-bottom: 1px solid white;
   grid-gap: 1em;
   padding: 0 2em;
   position: fixed;
@@ -19,12 +18,12 @@ export const Container = styled.header<IInvert>`
   left: 0;
   right: 0;
   transition: all 0.3s;
+  border-bottom: 1px solid ${p => p.theme.primary};
   ${({ invert }) =>
     invert &&
     `
       background-color: white;
       color: ${p => p.theme.primary};
-      border-bottom: 1px solid ${p => p.theme.primary};
   `}
 `;
 
