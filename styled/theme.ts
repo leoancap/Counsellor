@@ -4,6 +4,7 @@ export const theme = {
   primary: "#007bff",
   secondary: "#6c757d",
   dark: "#343a40",
+  lightGray: "#E1E6EC",
   textColor: "#4d5c64",
   breakpointMD: "768px",
   breakpointLG: "992px",

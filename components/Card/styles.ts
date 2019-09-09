@@ -2,7 +2,7 @@ import styled, { css } from "styled";
 
 export const Container = styled.div`
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
-  background: #fff;
+  background-color: #fff;
   margin: 1rem auto;
   border-radius: 0.2rem;
   display: grid;

@@ -16,6 +16,7 @@ export const ArrowWrapper = styled.div<IDisabled>`
 
 export const Container = styled.div`
   display: flex;
+  padding: 0.3em;
 `;
 
 export const DatesWrapper = styled.div`

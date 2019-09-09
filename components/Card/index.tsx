@@ -1,6 +1,12 @@
 import React from "react";
 import { IProfessional } from "types/domain";
-import { Rating, DateCarousel, UserAvatar, DesktopOnly } from "components";
+import {
+  Rating,
+  DateCarousel,
+  UserAvatar,
+  DesktopOnly,
+  Calendar,
+} from "components";
 import { Container, ProfessionalInfo } from "./styles";
 import { Summary } from "components/UserAvatar/styles";
 
@@ -18,7 +24,7 @@ export function Card({ professional }: IProps) {
         <Summary>{summary}</Summary>
       </ProfessionalInfo>
       <DesktopOnly>
-        <DateCarousel />
+        <Calendar />
       </DesktopOnly>
     </Container>
   );

@@ -2,7 +2,9 @@ import React from "react";
 import { default as NextApp } from "next/app";
 import Head from "next/head";
 import { ThemeProvider } from "styled-components";
+
 import { theme } from "styled/theme";
+import AppProvider from "context";
 
 export default class extends React.Component {
   static async getInitialProps(appContext: any) {
@@ -26,9 +28,12 @@ class App extends NextApp<any> {
         <Head>
           <title>Counsellor</title>
         </Head>
-        <ThemeProvider theme={theme}>
-          <Component {...pageProps} />
-        </ThemeProvider>
+
+        <AppProvider>
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
+        </AppProvider>
       </>
     );
   }
