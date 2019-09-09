@@ -1,4 +1,11 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, {
+  useState,
+  useContext,
+  useEffect,
+  Dispatch,
+  SetStateAction,
+  createContext,
+} from "react";
 import { getTimezone } from "utils/getTimezone";
 import moment from "moment";
 
@@ -21,9 +28,9 @@ interface IAppState {
   calendarStructure: moment.Moment[];
 }
 
-type IAction = React.Dispatch<React.SetStateAction<IAppState>>;
+type IAppAction = Dispatch<SetStateAction<IAppState>>;
 
-const AppContext = React.createContext<[IAppState, IAction] | null>(null);
+const AppContext = createContext<[IAppState, IAppAction] | null>(null);
 
 interface IProps {
   children: React.ReactChild;

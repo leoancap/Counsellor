@@ -22,7 +22,7 @@ export const Container = styled.div`
 
 export const DatesWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 3em 3em 3em 3em;
   grid-gap: 2em;
   margin: 0 1em;
 `;

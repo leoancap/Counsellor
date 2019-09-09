@@ -16,7 +16,6 @@ interface IProps {
 
 export function Card({ professional }: IProps) {
   const { summary } = professional;
-  // console.log(availabilitySlots);
   return (
     <Container>
       <ProfessionalInfo>

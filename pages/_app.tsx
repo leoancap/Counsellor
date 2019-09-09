@@ -15,7 +15,13 @@ export default class extends React.Component {
     };
   }
   render() {
-    return <App {...this.props} />;
+    return (
+      <AppProvider>
+        <>
+          <App {...this.props} />;
+        </>
+      </AppProvider>
+    );
   }
 }
 
@@ -29,11 +35,9 @@ class App extends NextApp<any> {
           <title>Counsellor</title>
         </Head>
 
-        <AppProvider>
-          <ThemeProvider theme={theme}>
-            <Component {...pageProps} />
-          </ThemeProvider>
-        </AppProvider>
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
       </>
     );
   }

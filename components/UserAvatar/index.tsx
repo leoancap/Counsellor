@@ -23,7 +23,7 @@ export function UserAvatar({
   profession,
   reviews,
   ratesPerHour,
-  fields,
+  complaints,
 }: IProfessional) {
   return (
     <Container>
@@ -38,7 +38,7 @@ export function UserAvatar({
           </CRP>
           <Rating reviews={reviews} />
           <Fields>
-            {fields.map((field, index) => (
+            {complaints.map((field, index) => (
               <Field key={index}>{field}</Field>
             ))}
           </Fields>

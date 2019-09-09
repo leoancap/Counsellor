@@ -15,7 +15,7 @@ const today = () => new Date().getDate();
 export const api = {
   professionals: async (
     startDate: number = today(),
-    endDate: number = today() + 4,
+    endDate: number = today() + 3,
   ) => {
     const { data } = await baseURL.get("/professionals", {
       params: {

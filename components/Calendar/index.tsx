@@ -7,6 +7,7 @@ import {
   Cell,
   Column,
   CalendarText,
+  NullCell,
 } from "./styles";
 import { DateCarousel } from "components";
 import { useAppContext } from "context";
@@ -21,7 +22,26 @@ export const Calendar = ({ availabilitySlots }: IProps) => {
   const [appState] = useAppContext();
   const { timezone, calendarStructure, calendarStep } = appState;
 
-  // console.log(calendarStructure);
+  const firstDay = availabilitySlots.filter(day =>
+    calendarStructure[0].isSame(day.start, "day"),
+  );
+
+  const secondDay = availabilitySlots.filter(day =>
+    calendarStructure[1].isSame(day.start, "day"),
+  );
+  const thirdDay = availabilitySlots.filter(day =>
+    calendarStructure[2].isSame(day.start, "day"),
+  );
+  const fourthDay = availabilitySlots.filter(day =>
+    calendarStructure[3].isSame(day.start, "day"),
+  );
+  const maxNumberOfCells = Math.max(
+    firstDay.length,
+    secondDay.length,
+    thirdDay.length,
+    fourthDay.length,
+  );
+  const maxCellsArray = new Array(maxNumberOfCells).fill(null);
   return (
     <Container>
       <CalendarHeader>
@@ -33,28 +53,48 @@ export const Calendar = ({ availabilitySlots }: IProps) => {
       </CalendarHeader>
       <Table>
         <Column>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
+          {maxCellsArray.map((_, index) =>
+            index < firstDay.length - 1 ? (
+              <Cell key={index}>
+                {moment(firstDay[index].start).format("HH:mm")}
+              </Cell>
+            ) : (
+              <NullCell key={index}>{"-"}</NullCell>
+            ),
+          )}
         </Column>
         <Column>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
+          {maxCellsArray.map((_, index) =>
+            index < secondDay.length - 1 ? (
+              <Cell key={index}>
+                {moment(secondDay[index].start).format("HH:mm")}
+              </Cell>
+            ) : (
+              <NullCell key={index}>{"-"}</NullCell>
+            ),
+          )}
         </Column>
         <Column>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
+          {maxCellsArray.map((_, index) =>
+            index < thirdDay.length - 1 ? (
+              <Cell key={index}>
+                {moment(thirdDay[index].start).format("HH:mm")}
+              </Cell>
+            ) : (
+              <NullCell key={index}>{"-"}</NullCell>
+            ),
+          )}
         </Column>
         <Column>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
-          <Cell>21:00</Cell>
+          {maxCellsArray.map((_, index) =>
+            index < thirdDay.length - 1 ? (
+              <Cell key={index}>
+                {moment(thirdDay[index].start).format("HH:mm")}
+              </Cell>
+            ) : (
+              <NullCell key={index}>{"-"}</NullCell>
+            ),
+          )}
         </Column>
       </Table>
     </Container>

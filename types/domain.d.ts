@@ -1,7 +1,7 @@
 export interface IProfessional {
   name: string;
   profession: string;
-  fields: string[];
+  complaints: string[];
   location: string;
   summary: string;
   reviews: number[];

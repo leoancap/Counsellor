@@ -12,7 +12,6 @@ import {
   MonthDay,
   ArrowWrapper,
 } from "./styles";
-import moment, { Moment } from "moment";
 import { useAppContext } from "context";
 
 interface IProps {}

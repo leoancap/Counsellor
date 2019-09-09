@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useLayoutEffect, useRef } from "react";
 import moment from "moment";
 
 import { Layout, Listing, WideSection } from "components";
@@ -11,7 +11,24 @@ interface IProps {
   professionals: IProfessional[];
 }
 
-const Home = ({ professionals }) => {
+const today = () => new Date().getDate();
+const isServer = typeof window === "undefined";
+
+const Home = ({ initialProfessionals }) => {
+  const [appState] = useAppContext();
+  const { calendarStep } = appState;
+  const [professionals, setProfessionals] = useState<IProfessional[]>(
+    initialProfessionals,
+  );
+  useEffect(() => {
+    if (!isServer) {
+      const startDate = today() + calendarStep;
+      const endDate = today() + calendarStep + 3;
+      api
+        .professionals(startDate, endDate)
+        .then(updatedProfessionals => setProfessionals(updatedProfessionals));
+    }
+  }, [calendarStep]);
   return (
     <Layout>
       <WideSection>
@@ -24,7 +41,7 @@ const Home = ({ professionals }) => {
 Home.getInitialProps = async ({  }: NextPageContext) => {
   const professionals = await api.professionals();
 
-  return { professionals };
+  return { initialProfessionals: professionals };
 };
 
 export default Home;

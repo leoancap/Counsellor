@@ -45,3 +45,11 @@ export const Cell = styled.div`
   padding: 0.3em;
   text-align: center;
 `;
+
+export const NullCell = styled.div`
+  color: ${p => p.theme.textColor};
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0.3em;
+  text-align: center;
+`;

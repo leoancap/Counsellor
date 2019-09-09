@@ -20,7 +20,9 @@ export function generateRosterPerDay(startDay: number = today()) {
       end: moment({ day: startDay, hour: index + 10 }).format(formatDate),
     });
   });
-  return sampleSize(items, random(1, 16));
+  const sample = sampleSize(items, random(0, 12));
+  sample.sort((a, b) => moment(a.start).valueOf() - moment(b.start).valueOf());
+  return sample;
 }
 
 export function generateRosterInterval(startDate: number, endDate: number) {
