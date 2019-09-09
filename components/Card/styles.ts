@@ -14,4 +14,4 @@ export const Container = styled.div`
   }
 `;
 
-export const ProfessionalInfo = styled.div``;
+export const ProfessionalAvatar = styled.div``;

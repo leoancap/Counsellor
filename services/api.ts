@@ -4,7 +4,7 @@ const dev = process.env.NODE_ENV !== "production";
 
 const apiUrl = dev
   ? "http://localhost:3000"
-  : "https://your_deployment.server.com";
+  : "https://counsellor.leoancap.now.sh";
 
 export const baseURL = axios.create({
   baseURL: `${apiUrl}/api`,

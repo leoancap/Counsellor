@@ -1,58 +1,57 @@
-import React, {
-  useState,
-  useContext,
-  useEffect,
-  Dispatch,
-  SetStateAction,
-  createContext,
-} from "react";
-import { getTimezone } from "utils/getTimezone";
-import moment from "moment";
+import React, { createContext, useContext, useEffect, useState } from 'react'
+import { IAppAction, IAppState } from 'types/app'
+import { getCalendarStructure } from 'utils/getCalendarStructure'
+import { api } from 'services/api'
 
-const getCalendarStructure = (calendarStep: number) => [
-  moment().add(calendarStep, "d"),
-  moment().add(1 + calendarStep, "d"),
-  moment().add(2 + calendarStep, "d"),
-  moment().add(3 + calendarStep, "d"),
-];
+const dayOfTheMonth = () => new Date().getDate()
 
-const initialState = {
-  timezone: getTimezone(),
-  calendarStep: 0,
-  calendarStructure: getCalendarStructure(0),
-};
-
-interface IAppState {
-  timezone: string;
-  calendarStep: number;
-  calendarStructure: moment.Moment[];
-}
-
-type IAppAction = Dispatch<SetStateAction<IAppState>>;
-
-const AppContext = createContext<[IAppState, IAppAction] | null>(null);
+const AppContext = createContext<[IAppState, IAppAction] | null>(null)
 
 interface IProps {
-  children: React.ReactChild;
+  children: (appState: IAppState) => JSX.Element
+  initialState: IAppState
 }
-
-const AppProvider = ({ children }: IProps) => {
-  const [appState, setAppState] = useState<IAppState>(initialState);
-  const { calendarStep } = appState;
+const AppProvider = ({ children, initialState }: IProps) => {
+  const [appState, setAppState] = useState<IAppState>(initialState)
+  const { calendarStep, isAppRunning } = appState
 
   useEffect(() => {
-    setAppState({
-      ...appState,
-      calendarStructure: getCalendarStructure(calendarStep),
-    });
-  }, [calendarStep]);
+    if (isAppRunning) {
+      setAppState(oldState => ({
+        ...oldState,
+        calendarStructure: getCalendarStructure(calendarStep),
+        loadingStatus: 'loading',
+      }))
+
+      const startDate = dayOfTheMonth() + calendarStep
+      const endDate = dayOfTheMonth() + calendarStep + 3
+      api
+        .professionals(startDate, endDate)
+        .then(updatedProfessionals => {
+          setAppState(oldState => ({
+            ...oldState,
+            professionals: updatedProfessionals,
+            loadingStatus: 'done',
+          }))
+        })
+        .catch(_ => {
+          // Ignore error for now
+          setAppState({ ...appState, loadingStatus: 'error' })
+        })
+    } else {
+      setAppState({
+        ...appState,
+        isAppRunning: true,
+      })
+    }
+  }, [calendarStep])
 
   return (
     <AppContext.Provider value={[appState, setAppState]}>
-      {children}
+      {children(appState)}
     </AppContext.Provider>
-  );
-};
+  )
+}
 
-export const useAppContext = () => useContext(AppContext);
-export default AppProvider;
+export const useAppContext = () => useContext(AppContext)
+export default AppProvider

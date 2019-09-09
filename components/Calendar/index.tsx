@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Container,
@@ -21,11 +21,11 @@ interface IProps {
 export const Calendar = ({ availabilitySlots }: IProps) => {
   const [appState] = useAppContext();
   const { timezone, calendarStructure, calendarStep } = appState;
+  const [showMore, setShowMore] = useState(false);
 
   const firstDay = availabilitySlots.filter(day =>
     calendarStructure[0].isSame(day.start, "day"),
   );
-
   const secondDay = availabilitySlots.filter(day =>
     calendarStructure[1].isSame(day.start, "day"),
   );
@@ -41,7 +41,7 @@ export const Calendar = ({ availabilitySlots }: IProps) => {
     thirdDay.length,
     fourthDay.length,
   );
-  const maxCellsArray = new Array(maxNumberOfCells).fill(null);
+  const maxCellsArray = new Array(showMore ? maxNumberOfCells : 5).fill(null);
   return (
     <Container>
       <CalendarHeader>

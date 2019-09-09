@@ -15,13 +15,7 @@ export default class extends React.Component {
     };
   }
   render() {
-    return (
-      <AppProvider>
-        <>
-          <App {...this.props} />;
-        </>
-      </AppProvider>
-    );
+    return <App {...this.props} />;
   }
 }
 

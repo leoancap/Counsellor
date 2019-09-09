@@ -1,8 +1,8 @@
-import styled, { createGlobalStyle } from "styled";
+import styled, { createGlobalStyle } from 'styled'
 
 export const MainContainer = styled.div`
   padding-top: 80px;
-`;
+`
 
 export const GlobalStyles = createGlobalStyle`
   *,*::before, *::after {
@@ -20,4 +20,4 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${p => p.theme.background};
     color: ${p => p.theme.dark};
   }
-`;
+`

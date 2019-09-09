@@ -8,7 +8,7 @@ export const CalendarHeader = styled.div`
 `;
 
 export const CalendarText = styled.div`
-  background-color: ${p => p.theme.primary};
+  background: ${p => p.theme.primary};
   color: white;
   font-weight: bold;
   padding: 0.5em 0;

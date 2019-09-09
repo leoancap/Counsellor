@@ -17,7 +17,7 @@ import {
 import { Rating } from "components";
 import { IProfessional } from "types/domain";
 
-export function UserAvatar({
+export function ProfessionalInfo({
   name,
   location,
   profession,

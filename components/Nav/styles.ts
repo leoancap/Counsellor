@@ -1,12 +1,12 @@
-import styled from "styled";
+import styled from 'styled'
 
 interface IInvert {
-  invert: boolean;
+  invert: boolean
 }
 
 export const Container = styled.header<IInvert>`
   height: 80px;
-  background-color: ${p => p.theme.foreground};
+  background-color: ${p => p.theme.primary};
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,12 +24,12 @@ export const Container = styled.header<IInvert>`
       background-color: white;
       color: ${theme.primary};
   `}
-`;
+`
 
 export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
-`;
+`
 
 export const Logo = styled.div<IInvert>`
   height: 2em;
@@ -51,7 +51,7 @@ export const Logo = styled.div<IInvert>`
       border: 1px solid ${primary};
       color: ${primary};
   `}
-`;
+`
 
 export const LogoText = styled.h3<IInvert>`
   color: white;
@@ -63,4 +63,4 @@ export const LogoText = styled.h3<IInvert>`
     `
       color: ${theme.primary};
   `}
-`;
+`

@@ -1,14 +1,8 @@
 import React from "react";
 import { IProfessional } from "types/domain";
-import {
-  Rating,
-  DateCarousel,
-  UserAvatar,
-  DesktopOnly,
-  Calendar,
-} from "components";
-import { Container, ProfessionalInfo } from "./styles";
-import { Summary } from "components/UserAvatar/styles";
+import { ProfessionalInfo, DesktopOnly, Calendar } from "components";
+import { Container, ProfessionalAvatar } from "./styles";
+import { Summary } from "components/ProfessionalInfo/styles";
 
 interface IProps {
   professional: IProfessional;
@@ -18,10 +12,10 @@ export function Card({ professional }: IProps) {
   const { summary } = professional;
   return (
     <Container>
-      <ProfessionalInfo>
-        <UserAvatar {...professional} />
+      <ProfessionalAvatar>
+        <ProfessionalInfo {...professional} />
         <Summary>{summary}</Summary>
-      </ProfessionalInfo>
+      </ProfessionalAvatar>
       <DesktopOnly>
         <Calendar availabilitySlots={professional.availabilitySlots} />
       </DesktopOnly>
