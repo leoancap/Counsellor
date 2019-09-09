@@ -10,13 +10,18 @@ import {
 } from "./styles";
 import { DateCarousel } from "components";
 import { useAppContext } from "context";
+import { IAvailabilitySlot } from "types/domain";
+import moment from "moment";
 
-interface IProps {}
+interface IProps {
+  availabilitySlots: IAvailabilitySlot[];
+}
 
-export const Calendar = ({  }: IProps) => {
+export const Calendar = ({ availabilitySlots }: IProps) => {
   const [appState] = useAppContext();
-  const { timezone } = appState;
-  console.log(appState);
+  const { timezone, calendarStructure, calendarStep } = appState;
+
+  // console.log(calendarStructure);
   return (
     <Container>
       <CalendarHeader>

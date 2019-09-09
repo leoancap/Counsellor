@@ -5,13 +5,14 @@ export const ArrowWrapper = styled.div<IDisabled>`
   svg {
     transform: translateY(10%);
     cursor: pointer;
-    ${p =>
-      p.disabled &&
-      `
+  }
+  ${p =>
+    p.disabled &&
+    `
+        pointer-events:none;
         opacity:0.5;
         cursor:unset;
     `}
-  }
 `;
 
 export const Container = styled.div`
@@ -32,13 +33,15 @@ export const DayWrapper = styled.div`
 `;
 
 export const WeekDay = styled.span`
-  font-size: 12px;
+  font-size: 10px;
+  font-weight: 500;
   text-align: center;
   text-transform: uppercase;
 `;
 
 export const MonthDay = styled.span`
-  font-size: 16px;
+  font-size: 14px;
+  font-weight: 500;
   text-align: center;
   white-space: nowrap;
 `;

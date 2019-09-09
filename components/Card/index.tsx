@@ -24,7 +24,7 @@ export function Card({ professional }: IProps) {
         <Summary>{summary}</Summary>
       </ProfessionalInfo>
       <DesktopOnly>
-        <Calendar />
+        <Calendar availabilitySlots={professional.availabilitySlots} />
       </DesktopOnly>
     </Container>
   );

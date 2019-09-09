@@ -5,6 +5,7 @@ import { Layout, Listing, WideSection } from "components";
 import { api } from "services/api";
 import { NextPageContext } from "next";
 import { IProfessional } from "types/domain";
+import { useAppContext } from "context";
 
 interface IProps {
   professionals: IProfessional[];

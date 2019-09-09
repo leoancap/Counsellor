@@ -12,36 +12,38 @@ import {
   MonthDay,
   ArrowWrapper,
 } from "./styles";
+import moment, { Moment } from "moment";
+import { useAppContext } from "context";
 
-interface IProps {
-  data?: string;
-}
+interface IProps {}
 
 export function DateCarousel({  }: IProps) {
+  const [appState, setAppState] = useAppContext();
+  const { calendarStructure, calendarStep } = appState;
   return (
     <Container>
-      <ArrowWrapper disabled={true}>
+      <ArrowWrapper
+        onClick={() => {
+          setAppState({ ...appState, calendarStep: calendarStep - 4 });
+        }}
+        disabled={calendarStep === 0}
+      >
         <IoIosArrowDropleftCircle size={30} />
       </ArrowWrapper>
       <DatesWrapper>
-        <DayWrapper>
-          <WeekDay>Dom</WeekDay>
-          <MonthDay>SET 08</MonthDay>
-        </DayWrapper>
-        <DayWrapper>
-          <WeekDay>Dom</WeekDay>
-          <MonthDay>SET 08</MonthDay>
-        </DayWrapper>
-        <DayWrapper>
-          <WeekDay>Dom</WeekDay>
-          <MonthDay>SET 08</MonthDay>
-        </DayWrapper>
-        <DayWrapper>
-          <WeekDay>Dom</WeekDay>
-          <MonthDay>SET 08</MonthDay>
-        </DayWrapper>
+        {calendarStructure.map(day => (
+          <DayWrapper key={day.valueOf()}>
+            <WeekDay>{day.format("ddd")}</WeekDay>
+            <MonthDay>{day.format("MMM DD").toUpperCase()}</MonthDay>
+          </DayWrapper>
+        ))}
       </DatesWrapper>
-      <ArrowWrapper disabled={false}>
+      <ArrowWrapper
+        onClick={() => {
+          setAppState({ ...appState, calendarStep: calendarStep + 4 });
+        }}
+        disabled={false}
+      >
         <IoIosArrowDroprightCircle size={30} />
       </ArrowWrapper>
     </Container>
