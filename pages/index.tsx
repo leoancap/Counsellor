@@ -1,13 +1,9 @@
 import React from "react";
 import moment from "moment";
 
-import { Layout, Listing } from "components";
-import {
-  generateRosterPerDay,
-  generateRosterInterval,
-} from "utils/generateRosterPerDay";
+import { Layout, Listing, WideSection } from "components";
 import { api } from "services/api";
-import { NextComponentType, NextPageContext } from "next";
+import { NextPageContext } from "next";
 import { IProfessional } from "types/domain";
 
 interface IProps {
@@ -17,7 +13,9 @@ interface IProps {
 const Home = ({ professionals }) => {
   return (
     <Layout>
-      <Listing professionals={professionals} />
+      <WideSection>
+        <Listing professionals={professionals} />
+      </WideSection>
     </Layout>
   );
 };

@@ -3,8 +3,7 @@ import styled, { css } from "styled";
 type IDisabled = { disabled: boolean };
 export const ArrowWrapper = styled.div<IDisabled>`
   svg {
-    transform: translateY(-50%);
-    margin-top: 60%;
+    transform: translateY(10%);
     cursor: pointer;
     ${p =>
       p.disabled &&
@@ -16,15 +15,13 @@ export const ArrowWrapper = styled.div<IDisabled>`
 `;
 
 export const Container = styled.div`
-  display: grid;
-  grid-auto-flow: column;
-  grid-template-columns: 1fr 8fr 1fr;
+  display: flex;
 `;
 
 export const DatesWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-gap: 1em;
+  grid-gap: 2em;
   margin: 0 1em;
 `;
 

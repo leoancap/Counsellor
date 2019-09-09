@@ -7,13 +7,9 @@ interface IInvert {
 export const Container = styled.header<IInvert>`
   height: 80px;
   background-color: ${p => p.theme.foreground};
-  /* display: grid;
-  justify-content: flex-start;
-  align-content: center;
-  grid-auto-flow: column;
-  grid-gap: 1em; */
   display: flex;
   align-items: center;
+  justify-content: space-between;
   padding: 0 20px;
   position: fixed;
   z-index: 9999;
@@ -28,6 +24,11 @@ export const Container = styled.header<IInvert>`
       background-color: white;
       color: ${theme.primary};
   `}
+`;
+
+export const LogoWrapper = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const Logo = styled.div<IInvert>`
