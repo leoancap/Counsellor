@@ -22,14 +22,22 @@ export const CalendarText = styled.div`
   }
 `
 
-export const Table = styled.div`
+export const Table = styled.div<{ isLoading: boolean }>`
   display: grid;
+  position: relative;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 0.5em;
   background: white;
   padding: 10px 35px;
   margin-top: 1em;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  ${({ isLoading }) =>
+    isLoading &&
+    `
+    * {
+      filter: blur(4px);
+    }
+  `}
 `
 
 export const Column = styled.div`

@@ -1,8 +1,9 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
+import { useRouter } from 'next/dist/client/router'
+
 import { IAppAction, IAppState } from 'types/app'
 import { getCalendarStructure } from 'utils/getCalendarStructure'
 import { api } from 'services/api'
-import { useRouter } from 'next/dist/client/router'
 
 const dayOfTheMonth = () => new Date().getDate()
 
@@ -42,7 +43,6 @@ const AppProvider = ({ children, initialState }: IProps) => {
         startDate,
         endDate,
       )
-      console.log(updatedProfessional)
       setAppState(oldState => ({
         ...oldState,
         professional: updatedProfessional,
@@ -64,11 +64,13 @@ const AppProvider = ({ children, initialState }: IProps) => {
 
       const startDate = dayOfTheMonth() + calendarStep
       const endDate = dayOfTheMonth() + calendarStep + 3
-      if (router.pathname.includes('professionals')) {
-        fetchProfessionals(startDate, endDate)
-      } else {
-        fetchProfessional(appState.professional.name, startDate, endDate)
-      }
+      setTimeout(() => {
+        if (router.pathname === '/') {
+          fetchProfessionals(startDate, endDate)
+        } else {
+          fetchProfessional(appState.professional.name, startDate, endDate)
+        }
+      }, 500)
     } else {
       setAppState({
         ...appState,

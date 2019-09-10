@@ -1,4 +1,7 @@
 import React from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/dist/client/router'
+
 import { IProfessional } from 'types/domain'
 import { ProfessionalInfo, DesktopOnly, Calendar } from 'components'
 import { Container, ProfessionalAvatar } from './styles'
@@ -9,13 +12,17 @@ interface IProps {
 }
 
 export function Card({ professional }: IProps) {
-  const { summary } = professional
+  const { summary, name } = professional
+  const router = useRouter()
+
   return (
     <Container>
-      <ProfessionalAvatar>
-        <ProfessionalInfo {...professional} />
-        <Summary>{summary}</Summary>
-      </ProfessionalAvatar>
+      <Link href={`/professional/${name}`}>
+        <ProfessionalAvatar isClickable={router.pathname === '/'}>
+          <ProfessionalInfo {...professional} />
+          <Summary>{summary}</Summary>
+        </ProfessionalAvatar>
+      </Link>
       <DesktopOnly>
         <Calendar availabilitySlots={professional.availabilitySlots} />
       </DesktopOnly>

@@ -1,6 +1,8 @@
 import React from 'react'
 import { useAmp } from 'next/amp'
+import { NextPageContext } from 'next'
 import Head from 'next/head'
+import Router from 'next/router'
 
 import { Layout, Card, WideSection } from 'components'
 import { api } from 'services/api'
@@ -52,11 +54,21 @@ const Professional = ({ currentProfessional }: IProps) => {
   return useAmp() ? AmpPage : NormalPage
 }
 
-Professional.getInitialProps = async ({ query }) => {
+Professional.getInitialProps = async ({ query, res }: NextPageContext) => {
   const { name } = query
   const professional = await api.professional(name as string)
-
-  return { currentProfessional: professional }
+  if (professional === 'Not found') {
+    if (res) {
+      res.writeHead(302, {
+        Location: '/',
+      })
+      res.end()
+    } else {
+      Router.push('/')
+    }
+  } else {
+    return { currentProfessional: professional }
+  }
 }
 
 export default Professional

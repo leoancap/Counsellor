@@ -29,6 +29,7 @@ export const Container = styled.header<IInvert>`
 export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
 `
 
 export const Logo = styled.div<IInvert>`

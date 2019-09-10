@@ -14,4 +14,12 @@ export const Container = styled.div`
   }
 `
 
-export const ProfessionalAvatar = styled.div``
+export const ProfessionalAvatar = styled.div<{ isClickable: boolean }>`
+  cursor: pointer;
+  ${({ isClickable }) =>
+    !isClickable &&
+    `
+    pointer-events:none;
+    cursor: default;
+  `}
+`
