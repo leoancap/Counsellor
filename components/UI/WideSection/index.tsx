@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
-import { Container } from "./styles";
+import { Container } from './styles'
 
 interface IProps {
-  children: React.ReactChild;
+  children: React.ReactNode
 }
 
 export function WideSection({ children }: IProps) {
-  return <Container>{children}</Container>;
+  return <Container>{children}</Container>
 }
