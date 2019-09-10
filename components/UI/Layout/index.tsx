@@ -1,14 +1,17 @@
-import Head from "next/head";
-import React, { ReactChild } from "react";
+import Head from 'next/head'
+import React from 'react'
 
-import { Nav } from "components";
-import { GlobalStyles, MainContainer } from "./styles";
+import { Nav } from 'components'
+import { GlobalStyles, MainContainer } from './styles'
+import AppProvider from 'context'
+import { IAppState } from 'types/app'
 
 interface IProps {
-  children: ReactChild | ReactChild[];
+  children: (appState: IAppState) => JSX.Element
+  initialState?: IAppState
 }
 
-function Layout({ children }: IProps) {
+function Layout({ children, initialState }: IProps) {
   return (
     <>
       <GlobalStyles />
@@ -16,11 +19,17 @@ function Layout({ children }: IProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <MainContainer>
-        <Nav />
-        <>{children}</>
+        <AppProvider initialState={initialState}>
+          {appState => (
+            <>
+              <Nav />
+              {children(appState)}
+            </>
+          )}
+        </AppProvider>
       </MainContainer>
     </>
-  );
+  )
 }
 
-export { Layout };
+export { Layout }

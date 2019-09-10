@@ -1,69 +1,42 @@
-import { NextPageContext } from "next";
-import React, { useEffect, useState } from "react";
+import React from 'react'
 
-import { Layout, Listing, WideSection } from "components";
-import AppProvider, { useAppContext } from "context";
-import { api } from "services/api";
-import { IAppState } from "types/app";
-import { IProfessional } from "types/domain";
-import { getTimezone } from "utils/getTimezone";
-import { getCalendarStructure } from "utils/getCalendarStructure";
-
-interface IProps {
-  professionals: IProfessional[];
-}
-
-const today = () => new Date().getDate();
-const isServer = typeof window === "undefined";
+import { Layout, Listing, WideSection } from 'components'
+import { api } from 'services/api'
+import { IAppState } from 'types/app'
+import { IProfessional } from 'types/domain'
+import { getCalendarStructure } from 'utils/getCalendarStructure'
+import { getTimezone } from 'utils/getTimezone'
 
 const defaultState: IAppState = {
   timezone: getTimezone(),
   calendarStep: 0,
   calendarStructure: getCalendarStructure(0),
-  loadingStatus: "done",
+  loadingStatus: 'done',
   isAppRunning: false,
   professionals: [],
-};
+}
 
-const Home = ({ initialProfessionals }) => {
-  // const [appState, setAppState] = useAppContext();
-  // const { calendarStep, isAppRunning, professionals } = appState;
-  // useEffect(() => {
-  //   if (!isServer && isAppRunning) {
-  //     setAppState({ ...appState, loadingStatus: "loading" });
-  //     const startDate = today() + calendarStep;
-  //     const endDate = today() + calendarStep + 3;
-  //     api
-  //       .professionals(startDate, endDate)
-  //       .then(updatedProfessionals => {
-  //         setProfessionals(updatedProfessionals);
-  //         setAppState({ ...appState, loadingStatus: "done" });
-  //       })
-  //       .catch(_ => {
-  //         // Ignore error for now
-  //         // setAppState({ ...appState, loadingStatus: "error" });
-  //       });
-  //   }
-  // }, [calendarStep]);
+interface IProps {
+  initialProfessionals: IProfessional[]
+}
+const Home = ({ initialProfessionals }: IProps) => {
   return (
-    <AppProvider
+    <Layout
       initialState={{ ...defaultState, professionals: initialProfessionals }}
     >
       {({ professionals }) => (
-        <Layout>
-          <WideSection>
-            <Listing professionals={professionals} />
-          </WideSection>
-        </Layout>
+        <WideSection>
+          <Listing professionals={professionals} />
+        </WideSection>
       )}
-    </AppProvider>
-  );
-};
+    </Layout>
+  )
+}
 
-Home.getInitialProps = async ({  }: NextPageContext) => {
-  const professionals = await api.professionals();
+Home.getInitialProps = async () => {
+  const professionals = await api.professionals()
 
-  return { initialProfessionals: professionals };
-};
+  return { initialProfessionals: professionals }
+}
 
-export default Home;
+export default Home

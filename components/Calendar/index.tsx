@@ -1,47 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, memo } from 'react'
+import moment from 'moment'
 
 import {
   Container,
   CalendarHeader,
   Table,
-  Cell,
   Column,
   CalendarText,
+  Cell,
   NullCell,
-} from "./styles";
-import { DateCarousel } from "components";
-import { useAppContext } from "context";
-import { IAvailabilitySlot } from "types/domain";
-import moment from "moment";
+} from './styles'
+import { DateCarousel } from 'components'
+import { useAppContext } from 'context'
+import { IAvailabilitySlot } from 'types/domain'
 
 interface IProps {
-  availabilitySlots: IAvailabilitySlot[];
+  availabilitySlots: IAvailabilitySlot[]
 }
 
 export const Calendar = ({ availabilitySlots }: IProps) => {
-  const [appState] = useAppContext();
-  const { timezone, calendarStructure, calendarStep } = appState;
-  const [showMore, setShowMore] = useState(false);
+  const [appState] = useAppContext()
+  const { timezone, calendarStructure } = appState
 
-  const firstDay = availabilitySlots.filter(day =>
-    calendarStructure[0].isSame(day.start, "day"),
-  );
-  const secondDay = availabilitySlots.filter(day =>
-    calendarStructure[1].isSame(day.start, "day"),
-  );
-  const thirdDay = availabilitySlots.filter(day =>
-    calendarStructure[2].isSame(day.start, "day"),
-  );
-  const fourthDay = availabilitySlots.filter(day =>
-    calendarStructure[3].isSame(day.start, "day"),
-  );
-  const maxNumberOfCells = Math.max(
-    firstDay.length,
-    secondDay.length,
-    thirdDay.length,
-    fourthDay.length,
-  );
-  const maxCellsArray = new Array(showMore ? maxNumberOfCells : 5).fill(null);
+  const [isTimetableOpen, setIsTimetableOpen] = useState(false)
+
+  const timetable = calendarStructure.map(day =>
+    availabilitySlots.filter(slot => day.isSame(slot.start, 'day')),
+  )
+
+  const maxNumberOfCells = Math.max(...timetable.map(day => day.length))
+  const defaultNumberOfCells = 5
+
+  const maxCellsArray = new Array(
+    isTimetableOpen ? maxNumberOfCells : defaultNumberOfCells,
+  ).fill(null)
+
+  const showMoreOrLess = isTimetableOpen ? (
+    <Cell onClick={() => setIsTimetableOpen(false)}>Less</Cell>
+  ) : (
+    <Cell onClick={() => setIsTimetableOpen(true)}>More</Cell>
+  )
+  const column = (maxCellsArray: null[], timetable: IAvailabilitySlot[]) =>
+    maxCellsArray.map((_, index) =>
+      index < timetable.length - 1 ? (
+        <Cell key={index}>
+          {moment(timetable[index].start).format('HH:mm')}
+        </Cell>
+      ) : (
+        <NullCell key={index}>{`-`}</NullCell>
+      ),
+    )
   return (
     <Container>
       <CalendarHeader>
@@ -52,51 +60,13 @@ export const Calendar = ({ availabilitySlots }: IProps) => {
         <DateCarousel />
       </CalendarHeader>
       <Table>
-        <Column>
-          {maxCellsArray.map((_, index) =>
-            index < firstDay.length - 1 ? (
-              <Cell key={index}>
-                {moment(firstDay[index].start).format("HH:mm")}
-              </Cell>
-            ) : (
-              <NullCell key={index}>{"-"}</NullCell>
-            ),
-          )}
-        </Column>
-        <Column>
-          {maxCellsArray.map((_, index) =>
-            index < secondDay.length - 1 ? (
-              <Cell key={index}>
-                {moment(secondDay[index].start).format("HH:mm")}
-              </Cell>
-            ) : (
-              <NullCell key={index}>{"-"}</NullCell>
-            ),
-          )}
-        </Column>
-        <Column>
-          {maxCellsArray.map((_, index) =>
-            index < thirdDay.length - 1 ? (
-              <Cell key={index}>
-                {moment(thirdDay[index].start).format("HH:mm")}
-              </Cell>
-            ) : (
-              <NullCell key={index}>{"-"}</NullCell>
-            ),
-          )}
-        </Column>
-        <Column>
-          {maxCellsArray.map((_, index) =>
-            index < thirdDay.length - 1 ? (
-              <Cell key={index}>
-                {moment(thirdDay[index].start).format("HH:mm")}
-              </Cell>
-            ) : (
-              <NullCell key={index}>{"-"}</NullCell>
-            ),
-          )}
-        </Column>
+        {timetable.map((day, index) => (
+          <Column key={day.toString() + index}>
+            {column(maxCellsArray, day)}
+            {showMoreOrLess}
+          </Column>
+        ))}
       </Table>
     </Container>
-  );
-};
+  )
+}

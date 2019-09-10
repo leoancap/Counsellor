@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
-} from "react-icons/io";
+} from 'react-icons/io'
 
 import {
   Container,
@@ -11,19 +11,19 @@ import {
   WeekDay,
   MonthDay,
   ArrowWrapper,
-} from "./styles";
-import { useAppContext } from "context";
+} from './styles'
+import { useAppContext } from 'context'
 
 interface IProps {}
 
 export function DateCarousel({  }: IProps) {
-  const [appState, setAppState] = useAppContext();
-  const { calendarStructure, calendarStep } = appState;
+  const [appState, setAppState] = useAppContext()
+  const { calendarStructure, calendarStep } = appState
   return (
     <Container>
       <ArrowWrapper
         onClick={() => {
-          setAppState({ ...appState, calendarStep: calendarStep - 4 });
+          setAppState({ ...appState, calendarStep: calendarStep - 4 })
         }}
         disabled={calendarStep === 0}
       >
@@ -32,19 +32,19 @@ export function DateCarousel({  }: IProps) {
       <DatesWrapper>
         {calendarStructure.map(day => (
           <DayWrapper key={day.valueOf()}>
-            <WeekDay>{day.format("ddd")}</WeekDay>
-            <MonthDay>{day.format("MMM DD").toUpperCase()}</MonthDay>
+            <WeekDay>{day.format('ddd')}</WeekDay>
+            <MonthDay>{day.format('MMM DD').toUpperCase()}</MonthDay>
           </DayWrapper>
         ))}
       </DatesWrapper>
       <ArrowWrapper
         onClick={() => {
-          setAppState({ ...appState, calendarStep: calendarStep + 4 });
+          setAppState({ ...appState, calendarStep: (calendarStep + 4) % 31 })
         }}
         disabled={false}
       >
         <IoIosArrowDroprightCircle size={30} />
       </ArrowWrapper>
     </Container>
-  );
+  )
 }
