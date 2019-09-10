@@ -25,4 +25,18 @@ export const api = {
       return data
     },
   ),
+  professional: async (
+    name: string,
+    startDate: number = today(),
+    endDate: number = today() + 3,
+  ) => {
+    const { data } = await baseURL.get(`/professional`, {
+      params: {
+        name,
+        startDate,
+        endDate,
+      },
+    })
+    return data
+  },
 }

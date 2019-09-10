@@ -16,7 +16,8 @@ function Layout({ children, initialState }: IProps) {
     <>
       <GlobalStyles />
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Counsellor</title>
+        <meta name="Meet stars" content="Meet your favourite thinker" />
       </Head>
       <MainContainer>
         <AppProvider initialState={initialState}>

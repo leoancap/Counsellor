@@ -1,4 +1,5 @@
 import React from 'react'
+import Head from 'next/head'
 
 import { Layout, Listing, WideSection } from 'components'
 import { api } from 'services/api'
@@ -25,9 +26,15 @@ const Home = ({ initialProfessionals }: IProps) => {
       initialState={{ ...defaultState, professionals: initialProfessionals }}
     >
       {({ professionals }) => (
-        <WideSection>
-          <Listing professionals={professionals} />
-        </WideSection>
+        <>
+          <Head>
+            <title>Counsellor</title>
+            <meta name="Meet stars" content="Meet your favourite thinker" />
+          </Head>
+          <WideSection>
+            <Listing professionals={professionals} />
+          </WideSection>
+        </>
       )}
     </Layout>
   )

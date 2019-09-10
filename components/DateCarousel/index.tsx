@@ -39,7 +39,7 @@ export function DateCarousel({  }: IProps) {
       </DatesWrapper>
       <ArrowWrapper
         onClick={() => {
-          setAppState({ ...appState, calendarStep: (calendarStep + 4) % 31 })
+          setAppState({ ...appState, calendarStep: calendarStep + 4 })
         }}
         disabled={false}
       >

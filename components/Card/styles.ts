@@ -1,4 +1,4 @@
-import styled, { css } from "styled";
+import styled, { css } from 'styled'
 
 export const Container = styled.div`
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 3px 10px 0 rgba(0, 0, 0, 0.1);
@@ -12,6 +12,6 @@ export const Container = styled.div`
   @media (max-width: ${p => p.theme.breakpointLG}) {
     grid-template-columns: 1fr;
   }
-`;
+`
 
-export const ProfessionalAvatar = styled.div``;
+export const ProfessionalAvatar = styled.div``

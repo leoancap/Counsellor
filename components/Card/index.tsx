@@ -1,15 +1,15 @@
-import React from "react";
-import { IProfessional } from "types/domain";
-import { ProfessionalInfo, DesktopOnly, Calendar } from "components";
-import { Container, ProfessionalAvatar } from "./styles";
-import { Summary } from "components/ProfessionalInfo/styles";
+import React from 'react'
+import { IProfessional } from 'types/domain'
+import { ProfessionalInfo, DesktopOnly, Calendar } from 'components'
+import { Container, ProfessionalAvatar } from './styles'
+import { Summary } from 'components/ProfessionalInfo/styles'
 
 interface IProps {
-  professional: IProfessional;
+  professional: IProfessional
 }
 
 export function Card({ professional }: IProps) {
-  const { summary } = professional;
+  const { summary } = professional
   return (
     <Container>
       <ProfessionalAvatar>
@@ -20,5 +20,5 @@ export function Card({ professional }: IProps) {
         <Calendar availabilitySlots={professional.availabilitySlots} />
       </DesktopOnly>
     </Container>
-  );
+  )
 }
