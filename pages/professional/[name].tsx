@@ -34,14 +34,10 @@ const Professional = ({ currentProfessional }: IProps) => {
   // Maybe a redirect to the normal page once mounted?!?!?!? <-- That would defeat the purpose of it
   const AmpPage = (
     <>
-      <Head>
-        <title>{currentProfessional.name}</title>
-        <meta
-          name={currentProfessional.name}
-          content={currentProfessional.summary}
-        />
-      </Head>
       <Layout
+        title={currentProfessional.name}
+        name={currentProfessional.name}
+        content={currentProfessional.summary}
         initialState={{ ...defaultState, professional: currentProfessional }}
       >
         {({ professional }) => (
@@ -54,14 +50,10 @@ const Professional = ({ currentProfessional }: IProps) => {
   )
   const NormalPage = (
     <>
-      <Head>
-        <title>{currentProfessional.name}</title>
-        <meta
-          name={currentProfessional.name}
-          content={currentProfessional.summary}
-        />
-      </Head>
       <Layout
+        title={`Counsellor: ${currentProfessional.name}`}
+        name={currentProfessional.name}
+        content={currentProfessional.summary}
         initialState={{ ...defaultState, professional: currentProfessional }}
       >
         {({ professional }) => (
