@@ -15,7 +15,7 @@ export const generateProfessionals = (
       'Psychotherapy',
     ],
     summary:
-      "was a Swiss psychiatrist and psychoanalyst who founded analytical psychology. Jung's work was influential in the complaints of psychiatry, anthropology, archaeology, literature, philosophy, and religious studies. Jung worked as a research scientist at the famous Burghölzli hospital, under Eugen Bleuler.",
+      'was a Swiss psychiatrist and psychoanalyst who founded analytical psychology. Jung\'s work was influential in the complaints of psychiatry, anthropology, archaeology, literature, philosophy, and religious studies. Jung worked as a research scientist at the famous Burghölzli hospital, under Eugen Bleuler.',
     reviews: [5, 4, 4, 3, 3],
     ratesPerHour: 160,
     availabilitySlots: generateRosterInterval(startDate, endDate),
@@ -26,7 +26,7 @@ export const generateProfessionals = (
     location: 'Canada',
     complaints: ['Self-Esteem'],
     summary:
-      "Nathaniel Branden was a Canadian–American psychotherapist and writer known for his work in the psychology of self-esteem. A former associate and romantic partner of Ayn Rand, Branden also played a prominent role in the 1960s in promoting Rand's philosophy, Objectivism. Rand and Branden split acrimoniously in 1968, after which Branden focused on developing his own psychological theories and modes of therapy.",
+      'Nathaniel Branden was a Canadian–American psychotherapist and writer known for his work in the psychology of self-esteem. A former associate and romantic partner of Ayn Rand, Branden also played a prominent role in the 1960s in promoting Rand\'s philosophy, Objectivism. Rand and Branden split acrimoniously in 1968, after which Branden focused on developing his own psychological theories and modes of therapy.',
     reviews: [5, 5, 5, 5, 5],
     ratesPerHour: 160,
     availabilitySlots: generateRosterInterval(startDate, endDate),

@@ -1,5 +1,5 @@
-import React from 'react'
 import Head from 'next/head'
+import React from 'react'
 
 import { Layout, Listing, WideSection } from 'components'
 import { api } from 'services/api'

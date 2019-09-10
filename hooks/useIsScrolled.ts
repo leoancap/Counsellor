@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export const useIsScrolled = () => {
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -11,10 +11,10 @@ export const useIsScrolled = () => {
   };
 
   React.useEffect(() => {
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { passive: true });
 
     return () => {
-      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener('scroll', onScroll);
     };
   }, []);
 

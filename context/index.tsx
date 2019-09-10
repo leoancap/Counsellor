@@ -1,9 +1,9 @@
-import React, { createContext, useContext, useEffect, useState } from 'react'
 import { useRouter } from 'next/dist/client/router'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 
+import { api } from 'services/api'
 import { IAppAction, IAppState } from 'types/app'
 import { getCalendarStructure } from 'utils/getCalendarStructure'
-import { api } from 'services/api'
 
 const dayOfTheMonth = () => new Date().getDate()
 

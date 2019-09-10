@@ -2,9 +2,9 @@ import Head from 'next/head'
 import React from 'react'
 
 import { Nav } from 'components'
-import { GlobalStyles, MainContainer } from './styles'
 import AppProvider from 'context'
 import { IAppState } from 'types/app'
+import { GlobalStyles, MainContainer } from './styles'
 
 interface IProps {
   children: (appState: IAppState) => JSX.Element

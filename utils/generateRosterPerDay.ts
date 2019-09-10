@@ -1,5 +1,5 @@
+import { random, sampleSize } from 'lodash'
 import moment from 'moment'
-import { sampleSize, random } from 'lodash'
 
 const dayOfTheMonth = () => new Date().getDate()
 const monthOfTheYear = () => new Date().getMonth()

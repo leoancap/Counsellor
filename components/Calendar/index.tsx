@@ -1,18 +1,18 @@
-import React, { useState, memo } from 'react'
 import moment from 'moment'
+import React, { useState } from 'react'
 
-import {
-  Container,
-  CalendarHeader,
-  Table,
-  Column,
-  CalendarText,
-  Cell,
-  NullCell,
-} from './styles'
 import { DateCarousel } from 'components'
 import { useAppContext } from 'context'
 import { IAvailabilitySlot } from 'types/domain'
+import {
+  CalendarHeader,
+  CalendarText,
+  Cell,
+  Column,
+  Container,
+  NullCell,
+  Table,
+} from './styles'
 
 interface IProps {
   availabilitySlots: IAvailabilitySlot[]

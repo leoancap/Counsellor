@@ -1,8 +1,8 @@
-import React from 'react'
 import Link from 'next/link'
+import React from 'react'
 
-import { Container, Logo, LogoText, LogoWrapper } from './styles'
 import { useIsScrolled } from 'hooks/useIsScrolled'
+import { Container, Logo, LogoText, LogoWrapper } from './styles'
 
 export function Nav() {
   const isScrolled = useIsScrolled()

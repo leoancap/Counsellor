@@ -4,15 +4,15 @@ import {
   IoIosArrowDroprightCircle,
 } from 'react-icons/io'
 
+import { useAppContext } from 'context'
 import {
+  ArrowWrapper,
   Container,
   DatesWrapper,
   DayWrapper,
-  WeekDay,
   MonthDay,
-  ArrowWrapper,
+  WeekDay,
 } from './styles'
-import { useAppContext } from 'context'
 
 interface IProps {}
 

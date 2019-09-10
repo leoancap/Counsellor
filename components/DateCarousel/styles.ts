@@ -1,6 +1,6 @@
-import styled, { css } from "styled";
+import styled, { css } from 'styled';
 
-type IDisabled = { disabled: boolean };
+interface IDisabled { disabled: boolean }
 export const ArrowWrapper = styled.div<IDisabled>`
   svg {
     transform: translateY(10%);

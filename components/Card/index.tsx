@@ -1,11 +1,11 @@
-import React from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/dist/client/router'
+import Link from 'next/link'
+import React from 'react'
 
-import { IProfessional } from 'types/domain'
-import { ProfessionalInfo, DesktopOnly, Calendar } from 'components'
-import { Container, ProfessionalAvatar } from './styles'
+import { Calendar, DesktopOnly, ProfessionalInfo } from 'components'
 import { Summary } from 'components/ProfessionalInfo/styles'
+import { IProfessional } from 'types/domain'
+import { Container, ProfessionalAvatar } from './styles'
 
 interface IProps {
   professional: IProfessional

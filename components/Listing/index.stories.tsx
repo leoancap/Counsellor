@@ -1,11 +1,11 @@
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
 
+import { IAppState } from 'types/app'
 import { Listing } from '.'
 import AppProvider from '../../context'
-import { generateProfessionals } from '../../utils/mockData'
 import { getCalendarStructure } from '../../utils/getCalendarStructure'
-import { IAppState } from 'types/app'
+import { generateProfessionals } from '../../utils/mockData'
 
 const defaultState: IAppState = {
   timezone: 'Lisbon (+1)',

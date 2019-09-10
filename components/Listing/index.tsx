@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import { Container } from "./styles";
-import { IProfessional } from "types/domain";
-import { Card } from "components";
+import { Card } from 'components';
+import { IProfessional } from 'types/domain';
+import { Container } from './styles';
 
 interface IProps {
   professionals: IProfessional[];

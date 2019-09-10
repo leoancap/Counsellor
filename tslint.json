@@ -1,0 +1,26 @@
+{
+  "defaultSeverity": "warning",
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["node_modules", ".storybook"]
+  },
+  "rules": {
+    "object-literal-sort-keys": false,
+    "no-shadowed-variable": false,
+    "max-line-length": false,
+    "prefer-for-of": false,
+    "variable-name": false,
+    "no-empty": false,
+    "jsx-boolean-value": false,
+    "no-console": [true, "log"],
+    "member-access": false,
+    "max-classes-per-file": false,
+    "member-ordering": false,
+    "no-var-requires": false,
+    "semicolon": false,
+    "jsx-no-multiline-js": false,
+    "jsx-no-lambda": false,
+    "no-namespace": false,
+    "quotemark": [true, "single", "jsx-double"]
+  }
+}

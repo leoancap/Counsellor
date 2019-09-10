@@ -1,7 +1,7 @@
-import React from "react";
-import { MdStar, MdStarBorder } from "react-icons/md";
+import React from 'react';
+import { MdStar, MdStarBorder } from 'react-icons/md';
 
-import { Container, ReviewCount } from "./styles";
+import { Container, ReviewCount } from './styles';
 
 interface IProps {
   reviews: number[];

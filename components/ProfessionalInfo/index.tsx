@@ -1,21 +1,21 @@
-import React from "react";
+import { Rating } from 'components';
+import React from 'react';
+import { IProfessional } from 'types/domain';
 import {
   Avatar,
+  City,
   Container,
+  CRP,
+  Field,
+  Fields,
+  Name,
+  Profession,
+  Rate,
+  RateWrapper,
+  Slash,
   Thumb,
   UserInfo,
-  Name,
-  CRP,
-  Profession,
-  Slash,
-  City,
-  Fields,
-  Field,
-  RateWrapper,
-  Rate,
-} from "./styles";
-import { Rating } from "components";
-import { IProfessional } from "types/domain";
+} from './styles';
 
 export function ProfessionalInfo({
   name,
@@ -44,7 +44,7 @@ export function ProfessionalInfo({
           </Fields>
           <RateWrapper>
             <Rate>{`€${ratesPerHour}`}</Rate>
-            {" / hour"}
+            {' / hour'}
           </RateWrapper>
         </UserInfo>
       </Avatar>

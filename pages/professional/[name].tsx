@@ -1,10 +1,10 @@
-import React from 'react'
-import { useAmp } from 'next/amp'
 import { NextPageContext } from 'next'
+import { useAmp } from 'next/amp'
 import Head from 'next/head'
 import Router from 'next/router'
+import React from 'react'
 
-import { Layout, Card, WideSection } from 'components'
+import { Card, Layout, WideSection } from 'components'
 import { api } from 'services/api'
 import { IAppState } from 'types/app'
 import { IProfessional } from 'types/domain'
