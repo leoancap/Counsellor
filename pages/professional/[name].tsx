@@ -27,8 +27,20 @@ interface IProps {
   currentProfessional: IProfessional
 }
 const Professional = ({ currentProfessional }: IProps) => {
+  // TODO
+  // This AMP Page should be better implemented
+  // read more: https://nextjs.org/docs#amp-first-page
+  // read more: https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer
+  // Maybe a redirect to the normal page once mounted?!?!?!? <-- That would defeat the purpose of it
   const AmpPage = (
     <>
+      <Head>
+        <title>{currentProfessional.name}</title>
+        <meta
+          name={currentProfessional.name}
+          content={currentProfessional.summary}
+        />
+      </Head>
       <Layout
         initialState={{ ...defaultState, professional: currentProfessional }}
       >
@@ -41,15 +53,24 @@ const Professional = ({ currentProfessional }: IProps) => {
     </>
   )
   const NormalPage = (
-    <Layout
-      initialState={{ ...defaultState, professional: currentProfessional }}
-    >
-      {({ professional }) => (
-        <WideSection>
-          <Card professional={professional} />
-        </WideSection>
-      )}
-    </Layout>
+    <>
+      <Head>
+        <title>{currentProfessional.name}</title>
+        <meta
+          name={currentProfessional.name}
+          content={currentProfessional.summary}
+        />
+      </Head>
+      <Layout
+        initialState={{ ...defaultState, professional: currentProfessional }}
+      >
+        {({ professional }) => (
+          <WideSection>
+            <Card professional={professional} />
+          </WideSection>
+        )}
+      </Layout>
+    </>
   )
   return useAmp() ? AmpPage : NormalPage
 }
