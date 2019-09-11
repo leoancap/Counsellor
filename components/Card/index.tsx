@@ -18,7 +18,7 @@ export function Card({ professional }: IProps) {
   return (
     <Container>
       <Link href={`/professional/${name}`}>
-        <ProfessionalAvatar isClickable={router.pathname === '/'}>
+        <ProfessionalAvatar isClickable={router && router.pathname === '/'}>
           <ProfessionalInfo {...professional} />
           <Summary>{summary}</Summary>
         </ProfessionalAvatar>

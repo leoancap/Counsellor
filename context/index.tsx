@@ -64,15 +64,11 @@ const AppProvider = ({ children, initialState }: IProps) => {
 
       const startDate = dayOfTheMonth() + calendarStep
       const endDate = dayOfTheMonth() + calendarStep + 3
-      // TODO
-      // This timeout it is just for testing purposes
-      setTimeout(() => {
-        if (router.pathname === '/') {
-          fetchProfessionals(startDate, endDate)
-        } else {
-          fetchProfessional(appState.professional.name, startDate, endDate)
-        }
-      }, 500)
+      if (router.pathname === '/') {
+        fetchProfessionals(startDate, endDate)
+      } else {
+        fetchProfessional(appState.professional.name, startDate, endDate)
+      }
     } else {
       setAppState({
         ...appState,

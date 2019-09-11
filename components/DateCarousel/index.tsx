@@ -22,14 +22,17 @@ export function DateCarousel({  }: IProps) {
   return (
     <Container>
       <ArrowWrapper
+        data-testid="prev-arrow"
         onClick={() => {
-          setAppState({ ...appState, calendarStep: calendarStep - 4 })
+          if (calendarStep !== 0) {
+            setAppState({ ...appState, calendarStep: calendarStep - 4 })
+          }
         }}
         disabled={calendarStep === 0}
       >
         <IoIosArrowDropleftCircle size={30} />
       </ArrowWrapper>
-      <DatesWrapper>
+      <DatesWrapper data-testid="dates">
         {calendarStructure.map(day => (
           <DayWrapper key={day.valueOf()}>
             <WeekDay>{day.format('ddd')}</WeekDay>
@@ -38,6 +41,7 @@ export function DateCarousel({  }: IProps) {
         ))}
       </DatesWrapper>
       <ArrowWrapper
+        data-testid="next-arrow"
         onClick={() => {
           setAppState({ ...appState, calendarStep: calendarStep + 4 })
         }}

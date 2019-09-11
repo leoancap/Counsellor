@@ -1,6 +1,6 @@
-import { Rating } from 'components';
-import React from 'react';
-import { IProfessional } from 'types/domain';
+import { Rating } from 'components'
+import React from 'react'
+import { IProfessional } from 'types/domain'
 import {
   Avatar,
   City,
@@ -15,7 +15,7 @@ import {
   Slash,
   Thumb,
   UserInfo,
-} from './styles';
+} from './styles'
 
 export function ProfessionalInfo({
   name,
@@ -30,7 +30,7 @@ export function ProfessionalInfo({
       <Avatar>
         <Thumb />
         <UserInfo>
-          <Name>{name}</Name>
+          <Name data-testid="fullname">{name}</Name>
           <CRP>
             <Profession>{profession}</Profession>
             <Slash>&nbsp;|&nbsp;</Slash>
@@ -49,5 +49,5 @@ export function ProfessionalInfo({
         </UserInfo>
       </Avatar>
     </Container>
-  );
+  )
 }
