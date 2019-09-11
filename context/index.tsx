@@ -64,10 +64,12 @@ const AppProvider = ({ children, initialState }: IProps) => {
 
       const startDate = dayOfTheMonth() + calendarStep
       const endDate = dayOfTheMonth() + calendarStep + 3
-      if (router.pathname === '/') {
+      if (router && router.pathname === '/') {
         fetchProfessionals(startDate, endDate)
       } else {
-        fetchProfessional(appState.professional.name, startDate, endDate)
+        if (appState.professional) {
+          fetchProfessional(appState.professional.name, startDate, endDate)
+        }
       }
     } else {
       setAppState({

@@ -14,9 +14,7 @@ import {
   WeekDay,
 } from './styles'
 
-interface IProps {}
-
-export function DateCarousel({  }: IProps) {
+export function DateCarousel() {
   const [appState, setAppState] = useAppContext()
   const { calendarStructure, calendarStep } = appState
   return (
