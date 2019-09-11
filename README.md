@@ -1,5 +1,7 @@
 # Counsellor
 
+![Preview-Screens](https://github.com/leoancap/Counsellor/blob/master/counsellorPreview.png)
+
 ## demo
 
 - https://counsellor.leoancap.now.sh
